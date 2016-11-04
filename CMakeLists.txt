@@ -14,7 +14,7 @@ if(MSVC)
 	set(CMAKE_CXX_FLAGS_DEBUG "/Od /DEBUG")
 else()
 	# GCC / CLANG compiler flags
-	set(CMAKE_CXX_FLAGS "-Wall -Wextra -Zi -Wno-c++11-extensions -std=c++11 -phtread")
+	set(CMAKE_CXX_FLAGS "-Wall -Wextra -Zi -Wno-c++11-extensions -std=c++11 -pthread")
 	set(CMAKE_CXX_FLAGS_RELEASE "-02")
 	set(CMAKE_CXX_FLAGS_DEBUG "-O0 -g")
 endif()
@@ -96,7 +96,7 @@ target_link_libraries(
 
 
 message("Binary output directory: " ${CMAKE_BINARY_DIR}/bin)
-install(TARGETS BattleRAM DESTINATION $CMAKE_BINARY_DIR}/bin)
+install(TARGETS BattleRAM DESTINATION ${CMAKE_BINARY_DIR}/bin)
 
 if(MSVC)
 	file(COPY dll/SDL2.dll DESTINATION ${CMAKE_BINARY_DIR}/Debug)
