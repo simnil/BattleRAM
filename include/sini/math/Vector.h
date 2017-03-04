@@ -108,7 +108,7 @@ namespace sini {
 
 	// 4D vector
 	template<typename T>
-	class Vector<T, 4> {
+	struct Vector<T, 4> {
 	public:
 		union {
 			T components[4];
@@ -232,6 +232,17 @@ namespace sini {
 	Vector<T, n>& operator/= (Vector<T, n>& vector, T scalar);
 	template<typename T, size_t n>
 	Vector<T, n> operator/ (const Vector<T, n>& vector, T scalar);
+
+	// Pointwise modulus
+	template<typename T, size_t n>
+	Vector<T, n>& operator%= (Vector<T, n>& left, const Vector<T, n>& right);
+	template<typename T, size_t n>
+	Vector<T, n> operator% (const Vector<T, n>& left, const Vector<T, n>& right);
+	// Modulus with scalar
+	template<typename T, size_t n>
+	Vector<T, n>& operator%= (Vector<T, n>& vector, T scalar);
+	template<typename T, size_t n>
+	Vector<T, n> operator% (const Vector<T, n>& vector, T scalar);
 
 	// Possibly bad practice to use operators differently to the built-in version
 	// But I think the chosen operators make sense

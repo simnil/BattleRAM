@@ -425,6 +425,31 @@ namespace sini {
 		return temp /= scalar;
 	}
 
+	// Pointwise modulus
+	template<typename T, size_t n>
+	Vector<T, n>& operator%= (Vector<T, n>& left, const Vector<T, n>& right) {
+		for (int i = 0; i < n; i++)
+			left[i] %= right[i];
+		return left;
+	}
+	template<typename T, size_t n>
+	Vector<T, n> operator% (const Vector<T, n>& left, const Vector<T, n>& right) {
+		Vector<T, n> temp = left;
+		return temp %= right;
+	}
+	// Modulus with scalar
+	template<typename T, size_t n>
+	Vector<T, n>& operator%= (Vector<T, n>& vector, T scalar) {
+		for (int i = 0; i < n; i++)
+			vector[i] %= scalar;
+		return vector;
+	}
+	template<typename T, size_t n>
+	Vector<T, n> operator% (const Vector<T, n>& vector, T scalar) {
+		Vector<T, n> temp;
+		return temp %= scalar;
+	}
+
 	// Indexation (access to vector components)
 	//General vector
 	template<typename T, size_t n>
@@ -487,5 +512,17 @@ namespace std {
 	template<typename T, size_t n>
 	struct hash<sini::Vector<T,n>> {
 		size_t operator() (const sini::Vector<T,n>& vector) const { return sini::hash(vector); }
+	};
+
+	// Ordering specialization in std (e.g. for use as 'key' in std::map)
+	template<typename T, size_t n>
+	struct less<sini::Vector<T, n>> {
+		bool operator() (const sini::Vector<T, n>& v1, const sini::Vector<T, n>& v2) const {
+			for (int i = 0; i < n; i++) {
+				if (v1.components[i] == v2.components[i]) continue;
+				return v1.components[i] < v2.components[i];
+			}
+			return false;
+		}
 	};
 }

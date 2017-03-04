@@ -18,7 +18,7 @@ __Requires: Visual Studio 2015__ or newer
 
 Git will ignore a directory called "build" so it is advisable to let CMake generate the solition from there. If inside the build directory, a Visual Studio solution can be generated with the command:
 
-	cmake .. "Visual Studio 14 2015 Win64"
+	cmake .. -G "Visual Studio 14 2015 Win64"
 
 
 I'd like to give a shout out to Peter Hillerström (https://github.com/PetorSFZ), whose help has many times been invaluable.
