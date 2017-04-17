@@ -8,8 +8,8 @@ set(BattleRAM_VERSION_MINOR 1)
 
 
 if(MSVC)
-	# MSCV compiler flags
-	set(CMAKE_CXX_FLAGS "/Wall /Zi /EHsc /wd4514 /wd4668 /wd4710 /wd4711 /wd4820")
+	# MSVC compiler flags
+	set(CMAKE_CXX_FLAGS "/W4 /Zi /EHsc /wd4514 /wd4668 /wd4710 /wd4711 /wd4820")
 	set(CMAKE_CXX_FLAGS_RELEASE "/02 /NDEBUG")
 	set(CMAKE_CXX_FLAGS_DEBUG "/Od /DEBUG")
 else()
@@ -59,6 +59,8 @@ include_directories(
 set(SOURCE_MATH 
 	${INCLUDE_DIR}/sini/math/Vector.h
 	${INCLUDE_DIR}/sini/math/Vector-defs.h
+	${INCLUDE_DIR}/sini/math/Matrix.h
+	${INCLUDE_DIR}/sini/math/Matrix-defs.h
 	${INCLUDE_DIR}/sini/math/Graph.h
 	${INCLUDE_DIR}/sini/math/Node.h
 )
