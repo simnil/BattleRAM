@@ -56,7 +56,8 @@ include_directories(
 
 # Source files
 
-set(SOURCE_MATH 
+set(SOURCE_MATH
+	${INCLUDE_DIR}/sini/CudaCompat.h
 	${INCLUDE_DIR}/sini/math/Vector.h
 	${INCLUDE_DIR}/sini/math/Vector-defs.h
 	${INCLUDE_DIR}/sini/math/Matrix.h
