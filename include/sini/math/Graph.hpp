@@ -3,7 +3,7 @@
 #define SINI_MATH_GRAPH_H
 
 #include <unordered_map>
-#include "sini/math/Node.h"
+#include "sini/math/Node.hpp"
 
 namespace sini {
 

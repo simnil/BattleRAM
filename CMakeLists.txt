@@ -30,8 +30,8 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_MODULES})
 
 # Pass some CMake settings (Version number)
 configure_file(
-	"${SRC_DIR}/BattleRamConfig.h.in"
-	"${SRC_DIR}/BattleRamConfig.h"
+	"${SRC_DIR}/BattleRamConfig.hpp.in"
+	"${SRC_DIR}/BattleRamConfig.hpp"
 )
 
 # Link SDL2
@@ -57,27 +57,27 @@ include_directories(
 # Source files
 
 set(SOURCE_MATH
-	${INCLUDE_DIR}/sini/CudaCompat.h
-	${INCLUDE_DIR}/sini/math/Vector.h
-	${INCLUDE_DIR}/sini/math/Vector-defs.h
-	${INCLUDE_DIR}/sini/math/Matrix.h
-	${INCLUDE_DIR}/sini/math/Matrix-defs.h
-	${INCLUDE_DIR}/sini/math/Graph.h
-	${INCLUDE_DIR}/sini/math/Node.h
+	${INCLUDE_DIR}/sini/math/Vector.hpp
+	${INCLUDE_DIR}/sini/math/Vector.inl
+	${INCLUDE_DIR}/sini/math/Matrix.hpp
+	${INCLUDE_DIR}/sini/math/Matrix.inl
+	${INCLUDE_DIR}/sini/math/Graph.hpp
+	${INCLUDE_DIR}/sini/math/Node.hpp
 )
 source_group(sini_math FILES ${SOURCE_MATH})
 
 set(SOURCE_UTIL
-	${INCLUDE_DIR}/sini/util/GridTile.h
+	${INCLUDE_DIR}/sini/util/GridTile.hpp
 	    ${SRC_DIR}/sini/util/GridTile.cpp
-	${INCLUDE_DIR}/sini/util/Grid.h
+	${INCLUDE_DIR}/sini/util/Grid.hpp
 	    ${SRC_DIR}/sini/util/Grid.cpp
-	${INCLUDE_DIR}/sini/util/Pathfinder.h
-	${INCLUDE_DIR}/sini/util/Pathfinder-defs.h
+	${INCLUDE_DIR}/sini/util/Pathfinder.hpp
+	${INCLUDE_DIR}/sini/util/Pathfinder.inl
 )
 source_group(sini_util FILES ${SOURCE_UTIL})
 
-set(SOURCE_ALL 
+set(SOURCE_ALL
+	${INCLUDE_DIR}/sini/CudaCompat.hpp
 	${SRC_DIR}/test.cpp
 	${SOURCE_MATH}
 	${SOURCE_UTIL}

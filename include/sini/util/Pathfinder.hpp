@@ -6,8 +6,8 @@
 #ifndef SINI_PATHFINDER_H
 #define SINI_PATHFINDER_H
 
-#include "sini/math/Graph.h"
-#include "sini/math/Node.h"
+#include "sini/math/Graph.hpp"
+#include "sini/math/Node.hpp"
 #include <unordered_set>
 #include <queue>
 #include <functional>
@@ -68,6 +68,6 @@ namespace sini {
 	
 }
 
-#include "Pathfinder-defs.h"
+#include "Pathfinder.inl"
 
 #endif

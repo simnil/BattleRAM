@@ -2,8 +2,8 @@
 #ifndef SINI_GRID_GRAPH_H
 #define SINI_GRID_GRAPH_H
 
-#include "sini/math/Vector.h"
-#include "sini/math/Graph.h"
+#include "sini/math/Vector.hpp"
+#include "sini/math/Graph.hpp"
 
 namespace sini {
 
@@ -30,6 +30,6 @@ namespace sini {
 }
 
 // Included here to avoid circular dependency error
-#include "sini/util/GridTile.h"
+#include "sini/util/GridTile.hpp"
 
 #endif
